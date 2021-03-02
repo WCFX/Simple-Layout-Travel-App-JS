@@ -13,7 +13,7 @@ export default () => {
       horizontal
       pagingEnabled
       scrollEnabled
-      snapToAlignment="center"
+      // snapToAlignment="center"
       showsHorizontalScrollIndicator={false}
     >
       {data.map((item, index) => (
@@ -40,16 +40,25 @@ export default () => {
             }}
           >
             <Text
-              style={{ ...FONTS.h1, color: COLORS.gray, textAlign: 'center' }}
+              style={{
+                ...FONTS.h1,
+                fontWeight: 'bold',
+                color: COLORS.gray,
+                textAlign: 'center',
+              }}
             >
               {item.title}
             </Text>
-            <Text style={{
-              ...FONTS.body3,
-              textAlign: 'center',
-              marginTop: SIZES.base,
-              color: COLORS.gray
-            }}>{item.description}</Text>
+            <Text
+              style={{
+                ...FONTS.body3,
+                textAlign: 'center',
+                marginTop: SIZES.base,
+                color: COLORS.gray,
+              }}
+            >
+              {item.description}
+            </Text>
           </View>
         </View>
       ))}
