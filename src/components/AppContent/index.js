@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, View, Image } from 'react-native';
+import { Animated, View, Image, Text } from 'react-native';
 
 import { data } from '~/mock';
 
@@ -17,22 +17,42 @@ export default () => {
       showsHorizontalScrollIndicator={false}
     >
       {data.map((item, index) => (
-        <View 
-        key={index}
-        style={{ width: SIZES.width}}
-        >
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <View key={index} style={{ width: SIZES.width }}>
+          <View
+            style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+          >
             <Image
               source={item.img}
               resizeMode="cover"
               style={{
-                width: "100%",
-                height: "100%"
+                width: '100%',
+                height: '100%',
               }}
-              />
+            />
+          </View>
+
+          <View
+            style={{
+              position: 'absolute',
+              bottom: '10%',
+              left: 40,
+              right: 40,
+            }}
+          >
+            <Text
+              style={{ ...FONTS.h1, color: COLORS.gray, textAlign: 'center' }}
+            >
+              {item.title}
+            </Text>
+            <Text style={{
+              ...FONTS.body3,
+              textAlign: 'center',
+              marginTop: SIZES.base,
+              color: COLORS.gray
+            }}>{item.description}</Text>
           </View>
         </View>
       ))}
     </Animated.ScrollView>
-  )
-}
+  );
+};
